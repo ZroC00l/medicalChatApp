@@ -20,6 +20,7 @@ function Auth() {
   const [isSignup, setIsSignup] = useState(true);
   const [form, setForm] = useState(initialState);
 
+  //handles chnage between signup and signin
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -33,11 +34,11 @@ function Auth() {
 
     //Take in data from our form
     const { fullName, userName, password, phoneNumber, avatarURL } = form;
-    //set up our serve url
+    //set up our server url
     const URL = "http://localhost:5000/auth";
 
     /*make request to our backend, we will be making a request to a different url each time, 
-    signup OR Login, the we get some data back from the server depending on what the 
+    signup OR Login, then we get some data back from the server depending on what the 
     condition evaluates to, then the data we get back we store into cookies*/
     const {
       data: { token, userId, hashedPassword },

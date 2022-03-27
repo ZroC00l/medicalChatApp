@@ -30,7 +30,7 @@ const ChannelContainer = ({
     );
   }
 
-  //This happens when we create a chat and there are no messages yet
+  //This happens when we create a channel and there are no messages yet
 
   const EmptyState = () => {
     return (

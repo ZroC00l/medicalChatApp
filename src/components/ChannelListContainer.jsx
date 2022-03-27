@@ -30,6 +30,13 @@ const CompanyHeader = () => (
   </div>
 );
 
+const customChannelTeamFilter = (channels) => {
+  return channels.filter((channel) => channel.type === "team");
+};
+const customChannelMessagingFilter = (channels) => {
+  return channels.filter((channel) => channel.type === "messaging");
+};
+
 const ChannelListContainer = ({
   isCreating,
   setIsCreating,
@@ -57,7 +64,7 @@ const ChannelListContainer = ({
         <ChannelSearch />
         <ChannelList
           filters={{}}
-          channelRenderFilterFn={() => {}}
+          channelRenderFilterFn={customChannelTeamFilter}
           List={(listProps) => (
             <TeamChannelList
               {...listProps}
@@ -75,7 +82,7 @@ const ChannelListContainer = ({
         <ChannelSearch />
         <ChannelList
           filters={{}}
-          channelRenderFilterFn={() => {}}
+          channelRenderFilterFn={customChannelMessagingFilter}
           List={(listProps) => (
             <TeamChannelList
               {...listProps}
