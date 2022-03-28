@@ -6,7 +6,7 @@ import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
 
 import HospitalIcon from "../assets/hospital.png";
 import LogoutIcon from "../assets/logout.png";
-import { initialState } from "stream-chat-react/dist/components/Channel/channelState";
+//import { initialState } from "stream-chat-react/dist/components/Channel/channelState";
 
 const cookies = new Cookies();
 
@@ -58,13 +58,13 @@ const ChannelListContent = ({
 
     window.location.reload();
   };
-  const filters = { members: { $in: [client.user.id] } };
+  const filters = { members: { $in: [client.userID] } };
   return (
     <>
       <SideBar logout={logout} />
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
-        <ChannelSearch />
+        <ChannelSearch setToggleContainer={setToggleContainer} />
         <ChannelList
           filters={filters}
           channelRenderFilterFn={customChannelTeamFilter}

@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useChatContext } from "stream-chat-react";
 import { CloseCreateChannel } from "../assets/CloseCreateChannel";
 import UserList from "./UserList";
+//import ResultsDropdown from "./ResultsDropdown";
 
 const ChannelNameInput = ({ channelName = "", setChannelName }) => {
-  const { client, setActiveChannel } = useChatContext();
-  const [selectedUsers, setSelectedUsers] = useState([client.userID || ""]);
+  //const { client, setActiveChannel } = useChatContext();
+  //const [selectedUsers, setSelectedUsers] = useState([client.userID || ""]);
 
   const handleChange = (event) => {
     event.preventDefault();
