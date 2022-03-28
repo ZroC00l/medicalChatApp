@@ -27,7 +27,7 @@ function TeamChannelPreview({
           image={members[0]?.user.image}
           name={members[0]?.user.fullName}
         />
-        <p>{members[0]?.user?.fullName}</p>
+        <p>{members[0]?.user?.fullName || members[0]?.user?.id}</p>
       </div>
     );
   };

@@ -2,23 +2,23 @@ import React, { useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
-//import signinImage from "../assets/signup-background.jpg";
+import signinImage from "../assets/signup.jpeg";
 
 //instance of our cookies
 const cookies = new Cookies();
 
 const initialState = {
   fullName: "",
-  userName: "",
+  username: "",
   password: "",
   conirmPassword: "",
   phoneNumber: "",
   avatarURL: "",
 };
 
-function Auth() {
-  const [isSignup, setIsSignup] = useState(true);
+const Auth = () => {
   const [form, setForm] = useState(initialState);
+  const [isSignup, setIsSignup] = useState(true);
 
   //handles chnage between signup and signin
   const handleChange = (e) => {
@@ -33,7 +33,7 @@ function Auth() {
     e.preventDefault();
 
     //Take in data from our form
-    const { fullName, userName, password, phoneNumber, avatarURL } = form;
+    const { username, password, phoneNumber, avatarURL } = form;
     //set up our server url
     const URL = "http://localhost:5000/auth";
 
@@ -41,17 +41,17 @@ function Auth() {
     signup OR Login, then we get some data back from the server depending on what the 
     condition evaluates to, then the data we get back we store into cookies*/
     const {
-      data: { token, userId, hashedPassword },
+      data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
-      userName,
+      username,
       password,
-      fullName,
+      fullName: form.fullName,
       phoneNumber,
       avatarURL,
     });
 
     cookies.set("token", token);
-    cookies.set("userName", userName);
+    cookies.set("username", username);
     cookies.set("fullName", fullName);
     cookies.set("userId", userId);
 
@@ -157,6 +157,6 @@ function Auth() {
       </div>
     </div>
   );
-}
+};
 
 export default Auth;
