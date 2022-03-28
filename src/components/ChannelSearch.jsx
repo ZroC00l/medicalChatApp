@@ -5,7 +5,7 @@ import { ResultsDropdown } from "./";
 
 const ChannelSearch = ({ setToggleContainer }) => {
   const { client, setActiveChannel } = useChatContext();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState();
   const [loading, setLoading] = useState(false);
   const [teamChannels, setTeamChannels] = useState([]);
   const [directChannels, setDirectChannels] = useState([]);
@@ -63,12 +63,13 @@ const ChannelSearch = ({ setToggleContainer }) => {
         </div>
         <input
           className="channel-search__input__text"
-          placeholder="search"
+          placeholder="Search"
           type="text"
           value={query}
           onChange={onSearch}
         />
       </div>
+
       {query && (
         <ResultsDropdown
           teamChannels={teamChannels}

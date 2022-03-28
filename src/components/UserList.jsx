@@ -26,7 +26,7 @@ const UserItem = ({ user, setSelectedUsers }) => {
     } else {
       setSelectedUsers((prevUsers) => [...prevUsers, user.id]);
     }
-    setSelected((prev) => !prev);
+    setSelected((prevSelected) => !prevSelected);
   };
 
   return (
