@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useChatContext } from "stream-chat-react";
+
 import { SearchIcon } from "../assets/SearchIcon";
 import { ResultsDropdown } from "./";
 
@@ -26,7 +27,7 @@ const ChannelSearch = ({ setToggleContainer }) => {
         members: { $in: [client.userID] },
       });
       const userResponse = client.queryUsers({
-        id: { $ne: [client.userID] },
+        id: { $ne: client.userID },
         name: { $autocomplete: text },
       });
       //using a Promise this two helper methods will be executed in parallel

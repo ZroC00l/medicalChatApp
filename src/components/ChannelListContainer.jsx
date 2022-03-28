@@ -89,7 +89,7 @@ const ChannelListContent = ({
             />
           )}
         />
-        {/*<ChannelSearch />*/}
+
         <ChannelList
           filters={filters}
           channelRenderFilterFn={customChannelMessagingFilter}
