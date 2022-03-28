@@ -33,7 +33,7 @@ const Auth = () => {
     //Take in data from our form
     const { username, password, phoneNumber, avatarURL } = form;
     //set up our server url
-    const URL = "http://localhost:5000/auth";
+    const URL = "https://medical-field-chat-app-pager.herokuapp.com/auth";
 
     /*make request to our backend, we will be making a request to a different url each time, 
     signup OR Login, then we get some data back from the server depending on what the 
