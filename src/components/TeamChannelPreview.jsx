@@ -1,7 +1,14 @@
 import React from "react";
 import { Avatar, useChatContext } from "stream-chat-react";
 
-function TeamChannelPreview({ channel, type }) {
+function TeamChannelPreview({
+  channel,
+  type,
+  setToogleContainer,
+  setIsEditing,
+  setIsCreating,
+  setActiveChannel,
+}) {
   const { activeChannel, client } = useChatContext();
 
   const ChannelPreview = () => (
@@ -33,7 +40,15 @@ function TeamChannelPreview({ channel, type }) {
           : "channel-preview__wrapper"
       }
       onClick={() => {
-        console.log(channel);
+        //console.log(channel);
+        setIsCreating(false);
+        setIsEditing(false);
+        setActiveChannel(channel);
+
+        //This Toggle feature allows the ability to switch between channels in Mobile application platform
+        if (setToogleContainer) {
+          setToogleContainer((prev) => !prev);
+        }
       }}
     >
       {type === "team" ? <ChannelPreview /> : <DirectPreview />}
